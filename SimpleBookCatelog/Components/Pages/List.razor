@@ -21,7 +21,7 @@
             @foreach(var book in books)
             {
                 <div class="book-item">
-                    <BookCard Book="book"/>
+                    <BookCard @rendermode="InteractiveServer" Book="book"/>
                 </div>
             }
         }else

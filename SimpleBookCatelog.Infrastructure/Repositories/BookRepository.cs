@@ -19,6 +19,16 @@ namespace SimpleBookCatelog.Infrastructure.Repositories
             await context.SaveChangesAsync();
         }
 
+        public async Task DeleteByIdAsync(int id)
+        {
+            var book = await GetByIdAsync(id);
+            if (book is not null)
+            {
+                context.Books.Remove(book);
+                await context.SaveChangesAsync();
+            }
+        }
+
         public async Task<List<Book>> GetAllAsync()
         {
             var books = await context.Books.ToListAsync();
